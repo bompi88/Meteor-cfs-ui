@@ -19,7 +19,10 @@ Template._fs_DeleteButton2.events({
     if (!fileObj) {
       return false;
     }
+    uploadObject.removeImage(fileObj);
+    console.log(uploadObject);
     fileObj.remove();
+
     return false;
   }
 });
