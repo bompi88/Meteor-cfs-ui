@@ -19,8 +19,11 @@ Template._fs_DeleteButton2.events({
     if (!fileObj) {
       return false;
     }
-    uploadObject.removeImage(fileObj);
-    console.log(uploadObject);
+    if(fileObj.collectionName === 'images') {
+      uploadObject.removeImage(fileObj._id);
+    } else {
+      uploadObject.removeReference(fileObj._id);
+    }
     fileObj.remove();
 
     return false;
